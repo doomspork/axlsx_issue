@@ -63,6 +63,8 @@ puts "Non-threaded"
   File.open(filename, "wb") { |f| f.write(excel.contents) }
 end
 
+sleep(5)
+
 puts "Threaded w/o sleep"
 2.times do |n|
   Thread.new do
@@ -72,6 +74,8 @@ puts "Threaded w/o sleep"
   end
 end
 
+sleep(5)
+
 puts "Threaded w/ sleep"
 2.times do |n|
   Thread.new do
@@ -79,5 +83,5 @@ puts "Threaded w/ sleep"
     excel = Excel.new("A message #{n}", filename)
     File.open(filename, "wb") { |f| f.write(excel.contents) }
   end
-  sleep(5)
+  sleep(1)
 end
